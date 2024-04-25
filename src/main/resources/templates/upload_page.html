@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot S3 File Upload</title>
+</head>
+<body>
+    <div align="center">
+        <h2>Spring Boot S3 File Upload</h2>
+        <form th:action="@{/upload}" method="POST" enctype="multipart/form-data">
+            <p>
+                <input type="file" name="file" required>
+            </p>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
