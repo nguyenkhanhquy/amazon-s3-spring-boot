@@ -20,7 +20,7 @@ public class S3Util {
     private static final AwsCredentialsProvider credentialsProvider = createCredentialsProvider();
     private static final Region region = Region.of(System.getenv("AWS_REGION"));
     private static final String bucketName = System.getenv("AWS_BUCKET");
-    public static final String AWS_URL_FOLDER = System.getenv("AWS_URL_FOLDER");
+    public static final String urlFolder = System.getenv("AWS_URL_FOLDER");
 
     private static AwsCredentialsProvider createCredentialsProvider() {
         AwsBasicCredentials awsCredentials = AwsBasicCredentials.create(

@@ -34,7 +34,7 @@ public class MainController {
         String message;
 
         try {
-            String newFileName = S3Util.AWS_URL_FOLDER + "new-name" + fileName.substring(fileName.lastIndexOf('.'));
+            String newFileName = S3Util.urlFolder + "new-name" + fileName.substring(fileName.lastIndexOf('.'));
             S3Util.uploadFile(newFileName, multipart.getInputStream());
             message = "Your file has been uploaded successfully";
         } catch (IOException ex) {
@@ -51,7 +51,7 @@ public class MainController {
                                          Model model){
         String message;
         try {
-            S3Util.deleteFile(S3Util.AWS_URL_FOLDER + fileName);
+            S3Util.deleteFile(S3Util.urlFolder + fileName);
             message = "Your file has been deleted successfully";
         } catch (Exception ex) {
             message = "Error deleting file: " + ex.getMessage();
