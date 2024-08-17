@@ -1,4 +1,4 @@
-package com.aws.s3;
+package com.aws.s3.util;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
