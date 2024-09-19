@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Boot S3 File Upload</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-    <div align="center">
-        <h2>Spring Boot S3 File Upload</h2>
-        <div>
-            <p><a th:href="@{/upload}" target="_blank"><button type="button">Upload</button></a></p>
-
-            <p><a th:href="@{/delete}" target="_blank"><button type="button">Delete</button></a></p>
+    <body>
+        <div class="container">
+            <h2>Spring Boot S3 File Upload</h2>
+            <div>
+                <a th:href="@{/upload}" class="btn">Upload</a>
+                <a th:href="@{/delete}" class="btn btn-delete">Delete</a>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

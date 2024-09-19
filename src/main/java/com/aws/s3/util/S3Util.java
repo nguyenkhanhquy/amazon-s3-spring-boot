@@ -17,9 +17,13 @@ import java.io.InputStream;
 public class S3Util {
 
     private static final AwsCredentialsProvider credentialsProvider = createCredentialsProvider();
-    private static final Region region = Region.of(System.getenv("AWS_REGION"));
-    private static final String bucketName = System.getenv("AWS_BUCKET");
-    public static final String urlFolder = System.getenv("AWS_URL_FOLDER");
+    private static final Region AWS_REGION = Region.of(System.getenv("AWS_REGION"));
+    private static final String AWS_BUCKET = System.getenv("AWS_BUCKET");
+    public static final String AWS_URL_FOLDER = System.getenv("AWS_URL_FOLDER");
+
+    private S3Util() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static AwsCredentialsProvider createCredentialsProvider() {
         AwsBasicCredentials awsCredentials = AwsBasicCredentials.create(
@@ -32,10 +36,10 @@ public class S3Util {
             throws AwsServiceException, SdkClientException, IOException {
         try (S3Client client = S3Client.builder()
                 .credentialsProvider(credentialsProvider)
-                .region(region)
+                .region(AWS_REGION)
                 .build()) {
             PutObjectRequest req = PutObjectRequest.builder()
-                    .bucket(bucketName)
+                    .bucket(AWS_BUCKET)
                     .key(fileName)
                     .acl("public-read")
                     .build();
@@ -47,14 +51,13 @@ public class S3Util {
             throws AwsServiceException, SdkClientException {
         try (S3Client client = S3Client.builder()
                 .credentialsProvider(credentialsProvider)
-                .region(region)
+                .region(AWS_REGION)
                 .build()) {
             DeleteObjectRequest req = DeleteObjectRequest.builder()
-                    .bucket(bucketName)
+                    .bucket(AWS_BUCKET)
                     .key(fileName)
                     .build();
             client.deleteObject(req);
         }
     }
-
 }

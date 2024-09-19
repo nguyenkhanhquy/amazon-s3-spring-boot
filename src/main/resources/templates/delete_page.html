@@ -2,19 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Boot S3 File Upload</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-    <div align="center">
-        <h2>Spring Boot S3 File Upload - Delete</h2>
-        <form th:action="@{/delete}" method="post">
-            <p>
-                File name: <input type="text" name="fileName" size="30" required>
-            </p>
-            <p>
-                <button type="submit">Submit</button>
-            </p>
-        </form>
-    </div>
-</body>
+    <body>
+        <div class="container">
+            <h2>Spring Boot S3 File Upload</h2>
+            <form th:action="@{/delete}" method="post">
+                <p>
+                    <label for="fileName">File name to delete</label>
+                    <input type="text" id="fileName" name="fileName" size="30" required>
+                </p>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </body>
 </html>
